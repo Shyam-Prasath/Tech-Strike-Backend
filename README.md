@@ -1,73 +1,170 @@
-# Backend Setup for Resume Analyzer
+# TechStrike - Pool Management System
 
-## Setup Instructions
+## 🚀 Overview
 
-### 1. Install Dependencies
-```bash
-npm install
+TechStrike is an innovative pool management system that leverages AI-powered insights and blockchain technology to connect consultants with opportunities while providing intelligent skill gap analysis and training recommendations. The platform features role-based access control, attendance tracking, and advanced analytics to optimize talent pool management.
+
+## 🏗️ Architecture
+
+The system follows a modern full-stack architecture with clear separation of concerns:
+
+```
+Frontend (React/Web3.js) → Backend (Node.js/Express) → Database (Supabase) → Blockchain (Ethereum/Metamask)
+                                     ↓
+                               AI Engine (Resume Parsing, Job Matching, Skills Analysis)
 ```
 
-### 2. Configure Environment Variables
+## ✨ Key Features
 
-1. Copy the example environment file:
-```bash
-cp env.example .env
+### 🔐 Authentication & Authorization
+- **Metamask Wallet Integration**: Secure Web3 authentication
+- **Role-Based Access Control**: Separate dashboards for Admins and Consultants
+- **Blockchain Verification**: Wallet address verification for enhanced security
+
+### 👨‍💼 Admin Dashboard
+- View top users and job submitters
+- Upload attendance data with AI-powered statistics
+- Dynamic feature usage analytics
+- Job posting and skills management
+- Comprehensive pool oversight
+
+### 🎯 Consultant Dashboard
+- Resume upload and AI parsing
+- ATS score calculation and skill gap analysis
+- AI-powered job recommendations
+- Attendance tracking and insights
+- Personalized training suggestions
+
+### 🤖 AI-Powered Features
+- **Resume Parsing**: Intelligent extraction of skills and experience
+- **Skill Gap Analysis**: Identify areas for improvement
+- **Job Matching**: Smart recommendations based on profile
+- **Training Suggestions**: Personalized learning paths
+- **Attendance Insights**: Pattern recognition and analytics
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **React.js**: Modern UI framework
+- **Web3.js**: Blockchain interaction
+- **Metamask**: Wallet integration
+- **Responsive Design**: Mobile-first approach
+
+### Backend
+- **Node.js**: Server runtime
+- **Express.js**: Web application framework
+- **RESTful API**: Clean API design
+- **Session Management**: Secure user sessions
+
+### Database
+- **Supabase**: PostgreSQL-based backend-as-a-service
+- **Real-time subscriptions**: Live data updates
+- **Secure authentication**: Built-in auth system
+
+### Blockchain
+- **Ethereum**: Smart contract platform
+- **Metamask**: Web3 wallet provider
+- **Decentralized Identity**: Blockchain-based authentication
+
+### AI/ML
+- Custom AI engine for:
+  - Natural Language Processing
+  - Resume parsing and analysis
+  - Skill matching algorithms
+  - Predictive analytics
+
+## 🚦 Getting Started
+
+### Prerequisites
+- Node.js (v16 or higher)
+- npm or yarn
+- Metamask wallet
+- Supabase account
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Shyam-Prasath/Tech-Strike-Backend
+   cd Tech-Strike-Backend
+   ```
+
+2. **Install dependencies**
+   ```bash
+   
+   # Install frontend dependencies
+   npm install
+   npm start dev
+   ```
+
+3. **Environment Setup**
+   ```bash
+   # .env
+   SUPABASE_URL=your_supabase_url
+   SUPABASE_ANON_KEY=your_supabase_anon_key
+   AI_API_KEY=your_ai_api_key
+   ```
+
+## 📱 Usage
+
+### For Consultants
+1. Connect your Metamask wallet
+2. Complete profile setup and upload resume
+3. View AI-generated ATS scores and skill gaps
+4. Browse personalized job recommendations
+5. Track attendance and training progress
+
+### For Admins
+1. Access admin dashboard after role verification
+2. Monitor platform analytics and user activity
+3. Upload attendance data for AI analysis
+4. Post new job opportunities
+5. Manage skills database and training content
+
+## 🔌 API Endpoints
+
+### Consultant Routes
+- `GET api/resume/upload` - Get Fetch ats score and other value for this From the resume with some recomendations
+
+## 📊 System Architecture Details
+
+### Role-Based Flow
+```
+User Login → Wallet Verification → Role Detection → Dashboard Routing
+     ↓
+[Admin] → Analytics, Job Management, User Oversight
+     ↓
+[Consultant] → Profile Management, Job Discovery, Skill Development
 ```
 
-2. Edit `.env` and add your Gemini API key:
+### Data Flow
 ```
-GEMINI_API_KEY=your_actual_api_key_here
-```
-
-### 3. Get Gemini API Key
-
-1. Go to [Google AI Studio](https://makersuite.google.com/app/apikey)
-2. Sign in with your Google account
-3. Create a new API key
-4. Copy the key and paste it in your `.env` file
-
-### 4. Start the Server
-```bash
-npm start
+Frontend User Action → API Layer → Business Logic → Database/AI Engine → Response → UI Update
 ```
 
-The server will run on port 3001 by default.
+### AI Engine Integration
+The AI engine processes:
+- Resume text extraction and parsing
+- Skill identification and categorization
+- Job matching based on requirements
+- Attendance pattern analysis
+- Training recommendation algorithms
 
-## API Endpoints
+## 🔒 Security Features
 
-### POST /resume/analyze
-Analyzes a resume PDF and returns detailed insights.
+- Blockchain-based authentication
+- Rate limiting on API endpoints
+- Encrypted data storage
 
-**Request:**
-- `resume`: PDF file (multipart/form-data)
-- `jobDescription`: Optional job description text
+## 📈 Future Roadmap
 
-**Response:**
-```json
-{
-  "overallScore": 85,
-  "sections": [
-    {
-      "name": "Contact Information",
-      "score": 95,
-      "status": "excellent"
-    }
-  ],
-  "suggestions": ["Add more quantifiable achievements"],
-  "skillVector": [
-    {
-      "skill": "React",
-      "level": "advanced"
-    }
-  ]
-}
-```
+- [ ] Advanced AI model training
+- [ ] Mobile application development
+- [ ] Integration with major job boards
+- [ ] Smart contract implementation
+- [ ] Multi-chain wallet support
+- [ ] Advanced analytics dashboard
+- [ ] Automated skill certification
 
-## Features
 
-- **Dynamic Analysis**: Uses Google's Gemini AI for intelligent resume analysis
-- **PDF Processing**: Extracts text from uploaded PDF files
-- **Comprehensive Scoring**: Analyzes multiple resume sections
-- **Skill Assessment**: Identifies and rates technical skills
-- **Actionable Suggestions**: Provides specific improvement recommendations
-- **Error Handling**: Graceful fallback if API calls fail
+**Built by the S Shyam Prasath**
