@@ -4,7 +4,12 @@ const cors = require('cors');
 const resumeRoutes = require('./routes/resume');
 
 const app = express();
-app.use(cors());
+const corsOptions = {
+  origin: 'https://tech-strike-frontend.vercel.app',
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use('/api/resume', resumeRoutes);
 
